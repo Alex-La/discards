@@ -1,0 +1,5 @@
+{
+  "port": 4000,
+  "jwtSecret": "pwa-first",
+  "mongoString": "mongodb+srv://Alex:qwe123ewq321@discards-pwa.jcqzn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

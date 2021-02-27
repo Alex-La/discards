@@ -6,9 +6,12 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 
 const typeDefs = require("./server/schema");
-const { mongoConnect } = require("./server/utils");
+const resolvers = require("./server/resolvers");
 const User = require("./models/User");
+const { mongoConnect } = require("./server/utils");
 mongoConnect();
+
+const UserAPI = require("./server/datasources/user");
 
 const server = new ApolloServer({
   context: async ({ req, res }) => {
@@ -23,6 +26,10 @@ const server = new ApolloServer({
     }
   },
   typeDefs,
+  resolvers,
+  dataSources: () => ({
+    userAPI: new UserAPI(),
+  }),
 });
 
 const app = express();

@@ -14,6 +14,11 @@ mongoConnect();
 const UserAPI = require("./server/datasources/user");
 
 const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => ({
+    userAPI: new UserAPI(),
+  }),
   context: async ({ req, res }) => {
     const auth = (req.headers && req.headers.authorization) || "";
     if (auth.length === 0) return { user: null };
@@ -25,11 +30,6 @@ const server = new ApolloServer({
       res.set("auth", "jwt expired");
     }
   },
-  typeDefs,
-  resolvers,
-  dataSources: () => ({
-    userAPI: new UserAPI(),
-  }),
 });
 
 const app = express();

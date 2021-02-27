@@ -1,5 +1,5 @@
 const Query = {
-  me: () => "Alex",
+  me: (_, __, { user }) => user,
 };
 
 module.exports = Query;

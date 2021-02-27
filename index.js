@@ -24,9 +24,10 @@ const server = new ApolloServer({
     if (auth.length === 0) return { user: null };
     try {
       const { userId } = jwt.verify(auth, config.get("jwtSecret"));
-      const user = await User.findOne({ id: userId });
+      const user = await User.findOne({ _id: userId });
       return { user };
     } catch (e) {
+      console.log(e);
       res.set("auth", "jwt expired");
     }
   },

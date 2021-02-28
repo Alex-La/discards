@@ -1,9 +1,9 @@
 const { ApolloError } = require("apollo-server-express");
 const bcrypt = require("bcryptjs");
 
-module.exports.registration = async (_, { data }, { dataSources }) => {
+module.exports.registration = async (_, { form }, { dataSources }) => {
   try {
-    const { name, email, password } = data;
+    const { name, email, password } = form;
 
     if (password.length < 6) return new ApolloError("Слишком короткий пароль!");
 

@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const config = require("config");
 
-module.exports.login = async (_, { data }, { dataSources }) => {
+module.exports.login = async (_, { form }, { dataSources }) => {
   try {
-    const { email, password } = data;
+    const { email, password } = form;
 
     if (!isEmail.validate(email)) return new ApolloError("Неверный Email!");
 

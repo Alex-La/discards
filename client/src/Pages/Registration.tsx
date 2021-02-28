@@ -1,12 +1,77 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Back } from "../Icons";
 import Logo from "../assets/logo.svg";
 import { CssTextField } from "../MUI/CssComponents";
 import { NavLink, useHistory } from "react-router-dom";
 
+import { useMutation } from "@apollo/react-hooks";
+import REG_MUTATION from "../graphql/mutations/registration";
+import LOGIN_MUTATION from "../graphql/mutations/login";
+import ME_QUERY from "../graphql/queries/me";
+
+import { useMessage } from "../hooks/message.hook";
+
+type TForm = {
+  name: String;
+  email: String;
+  password: String;
+  password_repeat: String;
+};
+
 const Registration: React.FC = () => {
   const history = useHistory();
+  const message = useMessage();
+
+  const [form, setForm] = useState<TForm>({
+    name: "",
+    email: "",
+    password: "",
+    password_repeat: "",
+  });
+
+  const [registrate, { data, error, loading }] = useMutation(REG_MUTATION, {
+    errorPolicy: "all",
+    variables: {
+      form: { name: form.name, email: form.email, password: form.password },
+    },
+  });
+
+  const [login, result] = useMutation(LOGIN_MUTATION, {
+    errorPolicy: "all",
+    variables: { form: { email: form.email, password: form.password } },
+    update: (cache, { data }) => {
+      const { token, user } = data.login || {};
+      localStorage.setItem("token", token);
+      cache.writeQuery({
+        query: ME_QUERY,
+        data: { me: user },
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (data && data.registration) {
+      message({ text: data.registration, type: "success" });
+      login();
+    }
+  }, [data, message, login]);
+
+  useEffect(() => {
+    if (error) message({ text: error.message, type: "error" });
+    if (result.error) message({ text: result.error.message, type: "error" });
+  }, [error, result.error, message]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (form.password !== form.password_repeat)
+      return message({ text: "Пароли не совпадают!", type: "error" });
+    registrate();
+  };
+
   return (
     <>
       <div
@@ -19,16 +84,20 @@ const Registration: React.FC = () => {
         <div className="wrap">
           <img src={Logo} alt="logo" width={200} />
           <p className="subtitle">Регистрация</p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <CssTextField
-              name="email"
+              onChange={handleChange}
+              value={form.name}
+              name="name"
               size="small"
               label="Ваше имя"
               variant="outlined"
               fullWidth
             />
             <CssTextField
-              name="password"
+              onChange={handleChange}
+              value={form.email}
+              name="email"
               size="small"
               label="Эл. почта"
               variant="outlined"
@@ -36,6 +105,8 @@ const Registration: React.FC = () => {
               style={{ marginTop: 11 }}
             />
             <CssTextField
+              onChange={handleChange}
+              value={form.password}
               name="password"
               size="small"
               label="Пароль"
@@ -45,7 +116,9 @@ const Registration: React.FC = () => {
               style={{ marginTop: 11 }}
             />
             <CssTextField
-              name="password"
+              onChange={handleChange}
+              value={form.password_repeat}
+              name="password_repeat"
               size="small"
               label="Пароль ещё раз"
               variant="outlined"
@@ -54,7 +127,12 @@ const Registration: React.FC = () => {
               style={{ marginTop: 11 }}
             />
 
-            <button className="btn btn-shadow" style={{ marginTop: 15 }}>
+            <button
+              disabled={loading || result.loading}
+              type="submit"
+              className="btn btn-shadow"
+              style={{ marginTop: 15 }}
+            >
               Зарегистрироваться
             </button>
           </form>

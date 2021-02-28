@@ -12,6 +12,14 @@ a {
   color: #ff5151;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
 p {
   margin: 0;
 }
@@ -29,8 +37,16 @@ p {
   color: white;
 }
 
+.btn:hover {
+  background: #ff6565;
+}
+
+.btn:active {
+  background: #ff6565;
+}
+
 .btn:disabled {
-  background-color: lightslategray;
+  background: #ffa6a6;
 }
 
 .btn-shadow {
@@ -44,6 +60,23 @@ p {
   color: #ff5151;
 }
 
+.btn-outlined:hover {
+  border-color: #ff6565;
+  color: #ff6565;
+  background: transparent;
+}
+
+.btn-outlined:active {
+  border-color: #ff6565;
+  color: #ff6565;
+  background: transparent;
+}
+
+.btn-outlined:disabled {
+  border-color: #d4d4d4;
+  color: #d4d4d4;
+}
+
 .btn-circle {
   display: flex;
   justify-content: center;
@@ -51,9 +84,21 @@ p {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  background: white;
+  background: #ff5151;
   border: 0;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.btn-circle:hover {
+  background-color: #ff6565;
+}
+
+.btn-circle:active {
+  background-color: #ff6565;
+}
+
+.btn-circle:disabled {
+  background-color: #ffa6a6;
 }
 
 .center-wrapper {
@@ -65,6 +110,7 @@ p {
 }
 
 .wrap {
+  color: #5b5b5b;
   text-align: center;
   width: 100%;
   padding: 20px;

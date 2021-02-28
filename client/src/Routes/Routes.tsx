@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 import { UserContext } from "../context/UserContext";
 
 import ErrorBoundary from "../Components/Errors/ErrorBoundary";
-import Preloader from "../Components/Preloader";
+import Preloader from "../Components/Loaders/Preloader";
 
 import { QueryResult, useQuery } from "@apollo/react-hooks";
 import ME_QUERY from "../graphql/queries/me";

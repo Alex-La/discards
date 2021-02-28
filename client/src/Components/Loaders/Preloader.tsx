@@ -1,6 +1,6 @@
 import React from "react";
 
-import Logo from "../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 
 const Preloader: React.FC = () => {
   return (

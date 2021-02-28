@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Preloader from "../Preloader";
+import Preloader from "../Loaders/Preloader";
 
 interface Props {}
 interface State {

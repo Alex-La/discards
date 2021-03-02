@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 const Settings: React.FC = () => {
   const history = useHistory();
 
+  const logout = () => localStorage.removeItem("token");
+
   return (
     <div style={{ padding: 20, marginBottom: 70 }}>
       <div onClick={() => history.goBack()}>
@@ -89,6 +91,7 @@ const Settings: React.FC = () => {
         <button
           className="btn btn-shadow btn-outlined"
           style={{ marginTop: 14 }}
+          onClick={logout}
         >
           Выйти из аккаунта
         </button>

@@ -12,6 +12,8 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.7",
+    "apollo-link-offline": "^1.0.1",
+    "apollo3-cache-persist": "^0.9.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-loading-skeleton": "^2.2.0",

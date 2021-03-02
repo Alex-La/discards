@@ -7,9 +7,6 @@ import Routes from "./Routes/Routes";
 import { ToastContainer, ToastContainerProps } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { ApolloProvider } from "@apollo/react-hooks";
-import client from "./startup/apollo";
-
 const toastSettings: ToastContainerProps = {
   position: "bottom-center",
   autoClose: 5000,
@@ -25,11 +22,9 @@ const toastSettings: ToastContainerProps = {
 const App: React.FC = () => {
   return (
     <Fragment>
-      <ApolloProvider client={client}>
-        <Router>
-          <Routes />
-        </Router>
-      </ApolloProvider>
+      <Router>
+        <Routes />
+      </Router>
       <ToastContainer {...toastSettings} />
     </Fragment>
   );

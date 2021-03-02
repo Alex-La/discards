@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const expressStaticGzip = require("express-static-gzip");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const config = require("config");
@@ -36,6 +37,9 @@ const app = express();
 app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
+  app.use(
+    expressStaticGzip(path.join(__dirname, "build"), { enableBrotli: true })
+  );
   app.use("/", express.static(path.join(__dirname, "client", "build")));
   app.get("*", (_, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

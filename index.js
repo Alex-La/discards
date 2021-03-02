@@ -38,7 +38,11 @@ app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   app.use(
-    expressStaticGzip(path.join(__dirname, "build"), { enableBrotli: true })
+    "/",
+    expressStaticGzip(path.join(__dirname, "build"), {
+      enableBrotli: true,
+      orderPreference: ["br", "gz"],
+    })
   );
   app.use("/", express.static(path.join(__dirname, "client", "build")));
   app.get("*", (_, res) => {

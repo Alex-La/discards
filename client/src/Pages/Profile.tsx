@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { BottomNavContext } from "../context/BottomNavContext";
 
 import {
   BackArrow,
@@ -12,7 +13,6 @@ import {
   Info,
   Faq,
 } from "../Icons";
-import BottomNav from "../Components/BottomNav";
 import {
   Grid,
   ListItemText,
@@ -27,6 +27,11 @@ import { UserContext } from "../context/UserContext";
 const Profile: React.FC = () => {
   const history = useHistory();
   const user = useContext(UserContext);
+  const { setShowNav } = useContext(BottomNavContext);
+
+  useEffect(() => {
+    setShowNav(true);
+  }, [setShowNav]);
 
   return (
     <div style={{ padding: 20, marginBottom: 70 }}>
@@ -205,8 +210,6 @@ const Profile: React.FC = () => {
           <ArrowRigth red />
         </ListItem>
       </List>
-
-      <BottomNav />
     </div>
   );
 };

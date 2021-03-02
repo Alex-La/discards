@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
+import { BottomNavContext } from "../../context/BottomNavContext";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 
 const NotFound: React.FC = () => {
+  const { setShowNav } = useContext(BottomNavContext);
+
+  useEffect(() => {
+    setShowNav(false);
+  }, [setShowNav]);
+
   return (
     <div className="center-wrapper">
       <div className="wrap">

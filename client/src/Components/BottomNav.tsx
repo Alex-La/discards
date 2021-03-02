@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory, withRouter, RouteComponentProps } from "react-router-dom";
 
 import {
   BottomNavigation,
@@ -26,7 +26,11 @@ const useStyles = makeStyles({
 
 type TValue = Number | null;
 
-const BottomNav: React.FC = () => {
+type TProps = RouteComponentProps & {
+  showNav: Boolean;
+};
+
+const BottomNav: React.FC<TProps> = ({ showNav }) => {
   const history = useHistory();
   const classes = useStyles();
   const [value, setValue] = React.useState<TValue>(null);
@@ -41,7 +45,12 @@ const BottomNav: React.FC = () => {
     <AppBar
       component="div"
       position="fixed"
-      style={{ top: "auto", bottom: 0, boxShadow: "none" }}
+      style={{
+        top: "auto",
+        bottom: 0,
+        boxShadow: "none",
+        display: showNav ? "flex" : "none",
+      }}
     >
       <BottomNavigation
         className={classes.root}

@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 
-import BottomNav from "../Components/BottomNav";
+import { BottomNavContext } from "../context/BottomNavContext";
 
 const Main: React.FC = () => {
-  return (
-    <div style={{ padding: 20, marginBottom: 70 }}>
-      <BottomNav />
-    </div>
-  );
+  const { setShowNav } = useContext(BottomNavContext);
+
+  useEffect(() => {
+    setShowNav(true);
+  }, [setShowNav]);
+
+  return <div style={{ padding: 20, marginBottom: 70 }}></div>;
 };
 
 export default Main;

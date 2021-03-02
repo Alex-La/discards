@@ -17,7 +17,7 @@ module.exports.login = async (_, { form }, { dataSources }) => {
     if (!isMatch) return new ApolloError("Неверный пароль");
 
     const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
-      expiresIn: "1m",
+      expiresIn: "30d",
     });
 
     return {

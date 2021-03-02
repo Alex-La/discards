@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import Skeleton from "react-loading-skeleton";
+import { BottomNavContext } from "../../context/BottomNavContext";
 
 const Lazy: React.FC = () => {
+  const { setShowNav } = useContext(BottomNavContext);
+
+  useEffect(() => {
+    setShowNav(false);
+  }, [setShowNav]);
+
   return (
     <div style={{ padding: "20px 0px 20px 20px" }}>
       <Skeleton width={214} height={26} />

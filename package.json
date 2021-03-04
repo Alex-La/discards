@@ -22,7 +22,8 @@
     "graphql": "^15.5.0",
     "isemail": "^3.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.18"
+    "mongoose": "^5.11.18",
+    "mongoose-type-phone": "^1.0.1"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",

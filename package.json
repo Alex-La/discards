@@ -16,6 +16,7 @@
   "dependencies": {
     "apollo-datasource": "^0.7.3",
     "apollo-server-express": "^2.21.0",
+    "awesome-phonenumber": "^2.47.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.4",
     "express-static-gzip": "^2.1.1",

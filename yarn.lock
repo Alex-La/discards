@@ -563,6 +563,11 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
+awesome-phonenumber@^2.47.0:
+  version "2.47.0"
+  resolved "https://registry.yarnpkg.com/awesome-phonenumber/-/awesome-phonenumber-2.47.0.tgz#c3fabf3deec43d51bd685afed106e4ae6e087b15"
+  integrity sha512-WVranN3TOb1RixNz6A65NlM/il8Poq0Jnebz2nJkSYVf9GuWIgYD8sHBGUQqZPLEesxrAZUwfHzYsgzTytgGaA==
+
 backo2@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"

@@ -17,6 +17,13 @@ class UserAPI extends DataSource {
     if (!isEmail.validate(email)) return;
     return await User.findOne({ email });
   }
+
+  async updateUser(data) {
+    return await User.findOneAndUpdate({ _id: data._id }, data, {
+      new: true,
+      useFindAndModify: false,
+    });
+  }
 }
 
 module.exports = UserAPI;

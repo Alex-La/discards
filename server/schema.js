@@ -8,6 +8,15 @@ const typeDefs = gql`
   type Mutation {
     registration(form: IUser!): String!
     login(form: IUser!): Login!
+    updateUser(form: IUpdate!): String!
+  }
+
+  input IUpdate {
+    name: String
+    surname: String
+    phone: String
+    email: String
+    password: String
   }
 
   input IUser {

@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
 type TContext = {
-  id: String;
-  name: String;
-  surname: String | null;
-  phone: String | null;
+  id: string;
+  name: string;
+  surname: string | null;
+  phone: string | null;
 } | null;
 
 export const UserContext: React.Context<TContext> = createContext<TContext>(

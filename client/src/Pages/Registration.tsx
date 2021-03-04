@@ -13,10 +13,10 @@ import ME_QUERY from "../graphql/queries/me";
 import { useMessage } from "../hooks/message.hook";
 
 type TForm = {
-  name: String;
-  email: String;
-  password: String;
-  password_repeat: String;
+  name: string;
+  email: string;
+  password: string;
+  password_repeat: string;
 };
 
 const Registration: React.FC = () => {

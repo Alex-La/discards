@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { toast, ToastOptions } from "react-toastify";
 
 type TMessage = {
-  text: String;
+  text: string;
   type: "success" | "error";
 };
 

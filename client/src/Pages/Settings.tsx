@@ -1,10 +1,14 @@
-import React from "react";
+// @ts-nocheck
+
+import React, { useContext } from "react";
 
 import { BackArrow } from "../Icons";
 import { CssTextField } from "../MUI/CssComponents";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 const Settings: React.FC = () => {
+  const user = useContext(UserContext);
   const history = useHistory();
 
   const logout = () => localStorage.removeItem("token");
@@ -44,6 +48,7 @@ const Settings: React.FC = () => {
           variant="outlined"
           size="small"
           label="Имя"
+          placeholder={user?.name}
           fullWidth
           style={{ marginBottom: 10 }}
         />
@@ -51,6 +56,7 @@ const Settings: React.FC = () => {
           variant="outlined"
           size="small"
           label="Фамилия"
+          placeholder={user?.surname}
           fullWidth
           style={{ marginBottom: 10 }}
         />
@@ -58,6 +64,7 @@ const Settings: React.FC = () => {
           variant="outlined"
           size="small"
           label="Мобильный телефон"
+          placeholder={user?.phone}
           fullWidth
           style={{ marginBottom: 10 }}
         />

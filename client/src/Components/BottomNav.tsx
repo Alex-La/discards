@@ -24,10 +24,10 @@ const useStyles = makeStyles({
   },
 });
 
-type TValue = Number | null;
+type TValue = number | null;
 
 type TProps = RouteComponentProps & {
-  showNav: Boolean;
+  showNav: boolean;
 };
 
 const BottomNav: React.FC<TProps> = ({ showNav }) => {

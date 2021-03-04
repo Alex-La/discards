@@ -11,8 +11,8 @@ import ME_QUERY from "../graphql/queries/me";
 import { useMessage } from "../hooks/message.hook";
 
 type TForm = {
-  email: String;
-  password: String;
+  email: string;
+  password: string;
 };
 
 const Login: React.FC = () => {

@@ -47,6 +47,7 @@ const Profile: React.FC = () => {
         }}
       >
         {user?.name}
+        {user?.surname}
       </p>
 
       <p

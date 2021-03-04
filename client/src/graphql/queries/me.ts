@@ -5,6 +5,8 @@ const ME_QUERY: DocumentNode = gql`
     me {
       id
       name
+      phone
+      surname
     }
   }
 `;

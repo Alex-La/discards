@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { BottomNavContext } from "../context/BottomNavContext";
 import SearchInput from "../Components/SearchInput";
 import BottomModal from "../Components/Main/BottomModal";
-import { Add } from "../Icons";
+import { Add, Plus } from "../Icons";
 
 const Main: React.FC = () => {
   const [drawerState, setDrawerState] = useState<boolean>(false);
@@ -31,7 +31,35 @@ const Main: React.FC = () => {
         justifyContent: "space-between",
       }}
     >
-      <SearchInput />
+      <div>
+        <SearchInput />
+        <p
+          style={{
+            marginTop: 16,
+            fontWeight: 700,
+            fontSize: 24,
+          }}
+        >
+          Для начала, добавьте вашу первую карту:
+        </p>
+      </div>
+
+      <div
+        onClick={() => toggleDrawer(true)}
+        style={{
+          marginTop: 32,
+          height: "100%",
+          width: "70%",
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.12)",
+          borderRadius: 15,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          alignSelf: "center",
+        }}
+      >
+        <Plus />
+      </div>
 
       <div
         onClick={() => toggleDrawer(true)}

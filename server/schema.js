@@ -8,7 +8,7 @@ const typeDefs = gql`
   type Mutation {
     registration(form: IUser!): String!
     login(form: IUser!): Login!
-    updateUser(form: IUpdate!): String!
+    updateUser(form: IUpdate!): User!
   }
 
   input IUpdate {

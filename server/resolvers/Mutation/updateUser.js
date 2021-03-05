@@ -34,7 +34,8 @@ module.exports.updateUser = async (_, { form }, { dataSources, user }) => {
       password,
     });
 
-    if (success) return "Пользователь обновлён!";
+    if (success) return success;
+    else return new ApolloError("Ошибка обновления пользователя!");
   } catch (e) {
     console.log(e);
     return new ApolloError("Ошибка сервера!");

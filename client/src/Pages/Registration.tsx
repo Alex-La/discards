@@ -31,14 +31,12 @@ const Registration: React.FC = () => {
   });
 
   const [registrate, { data, error, loading }] = useMutation(REG_MUTATION, {
-    errorPolicy: "all",
     variables: {
       form: { name: form.name, email: form.email, password: form.password },
     },
   });
 
   const [login, result] = useMutation(LOGIN_MUTATION, {
-    errorPolicy: "all",
     variables: { form: { email: form.email, password: form.password } },
     update: (cache, { data }) => {
       const { token, user } = data.login || {};

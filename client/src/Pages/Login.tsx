@@ -21,7 +21,6 @@ const Login: React.FC = () => {
   const [form, setForm] = useState<TForm>({ email: "", password: "" });
 
   const [login, { error, loading }] = useMutation(LOGIN_MUTATION, {
-    errorPolicy: "all",
     variables: { form },
     update: (cache, { data }) => {
       const { token, user } = data.login || {};

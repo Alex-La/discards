@@ -46,8 +46,7 @@ const Profile: React.FC = () => {
           marginTop: 15,
         }}
       >
-        {user?.name}
-        {user?.surname}
+        {user?.name} {user?.surname}
       </p>
 
       <p

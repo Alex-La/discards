@@ -10,6 +10,7 @@ const Main = lazy(() => import("../Pages/Main"));
 const Profile = lazy(() => import("../Pages/Profile"));
 const Settings = lazy(() => import("../Pages/Settings"));
 const Contacts = lazy(() => import("../Pages/Contacts"));
+const Partners = lazy(() => import("../Pages/Partners"));
 
 const RenderPrivateRoutes: React.FC = () => {
   const [showNav, setShowNav] = useState<boolean>(true);
@@ -26,6 +27,7 @@ const RenderPrivateRoutes: React.FC = () => {
           <Route path="/profile" component={Profile} />
           <Route path="/settings" component={Settings} />
           <Route path="/contacts" component={Contacts} />
+          <Route path="/partners" component={Partners} />
           <Route path="*" component={NotFound} />
         </Switch>
       </BottomNavContext.Provider>

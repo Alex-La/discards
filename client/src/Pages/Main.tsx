@@ -1,10 +1,14 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 
 import { BottomNavContext } from "../context/BottomNavContext";
 import SearchInput from "../Components/SearchInput";
+import BottomModal from "../Components/Main/BottomModal";
 import { Add } from "../Icons";
 
 const Main: React.FC = () => {
+  const [drawerState, setDrawerState] = useState<boolean>(false);
+  const toggleDrawer = (state: boolean) => setDrawerState(state);
+
   const { setShowNav } = useContext(BottomNavContext);
 
   useEffect(() => {
@@ -30,6 +34,7 @@ const Main: React.FC = () => {
       <SearchInput />
 
       <div
+        onClick={() => toggleDrawer(true)}
         style={{
           marginTop: 20,
           display: "flex",
@@ -59,6 +64,7 @@ const Main: React.FC = () => {
           Добавить
         </p>
       </div>
+      <BottomModal drawerState={drawerState} toggleDrawer={toggleDrawer} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { SwipeableDrawer } from "@material-ui/core";
 import { Camera, Dots } from "../../Icons";
-const iOS = process?.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 type TModal = {
   drawerState: boolean;

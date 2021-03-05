@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import { BackArrow } from "../Icons";
 import { useHistory } from "react-router-dom";
+import { BottomNavContext } from "../context/BottomNavContext";
 
 const Contacts: React.FC = () => {
   const history = useHistory();
+  const { setShowNav } = useContext(BottomNavContext);
+
+  useEffect(() => {
+    setShowNav(true);
+  }, [setShowNav]);
 
   return (
     <div style={{ padding: 20, marginBottom: 70 }}>

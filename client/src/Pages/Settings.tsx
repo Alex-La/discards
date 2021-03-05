@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React, { useContext, useEffect, useState } from "react";
+import { BottomNavContext } from "../context/BottomNavContext";
 
 import { useMutation } from "@apollo/react-hooks";
 import UPDATE_USER_MUTATION from "../graphql/mutations/updateUser";
@@ -21,6 +22,12 @@ type TForm = {
 };
 
 const Settings: React.FC = () => {
+  const { setShowNav } = useContext(BottomNavContext);
+
+  useEffect(() => {
+    setShowNav(true);
+  }, [setShowNav]);
+
   const [form, setForm] = useState<TForm>({
     name: undefined,
     surname: undefined,

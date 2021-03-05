@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 
-import { BackArrow } from "../Icons";
+import { BackArrow } from "../../Icons";
 import { useHistory } from "react-router-dom";
-import { BottomNavContext } from "../context/BottomNavContext";
+import { BottomNavContext } from "../../context/BottomNavContext";
 
 const Contacts: React.FC = () => {
   const history = useHistory();

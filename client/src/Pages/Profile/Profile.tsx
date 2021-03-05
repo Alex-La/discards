@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BottomNavContext } from "../context/BottomNavContext";
+import { BottomNavContext } from "../../context/BottomNavContext";
 
 import {
   BackArrow,
@@ -12,7 +12,7 @@ import {
   Share,
   Info,
   Faq,
-} from "../Icons";
+} from "../../Icons";
 import {
   Grid,
   ListItemText,
@@ -22,7 +22,7 @@ import {
 } from "@material-ui/core";
 import { useHistory, NavLink } from "react-router-dom";
 
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 const Profile: React.FC = () => {
   const history = useHistory();

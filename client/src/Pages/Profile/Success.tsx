@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 
 import { NavLink } from "react-router-dom";
-import { SuccessRound } from "../Icons";
-import { BottomNavContext } from "../context/BottomNavContext";
+import { SuccessRound } from "../../Icons";
+import { BottomNavContext } from "../../context/BottomNavContext";
 
 const SuccessSend: React.FC = () => {
   const { setShowNav } = useContext(BottomNavContext);

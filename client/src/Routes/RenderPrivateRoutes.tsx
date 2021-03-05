@@ -7,13 +7,13 @@ import BottomNav from "../Components/BottomNav";
 import Lazy from "../Components/Loaders/Lazy";
 import NotFound from "../Components/Errors/NotFound";
 const Main = lazy(() => import("../Pages/Main"));
-const Profile = lazy(() => import("../Pages/Profile"));
-const Settings = lazy(() => import("../Pages/Settings"));
-const Contacts = lazy(() => import("../Pages/Contacts"));
-const Partners = lazy(() => import("../Pages/Partners"));
-const About = lazy(() => import("../Pages/About"));
-const Support = lazy(() => import("../Pages/Support"));
-const Success = lazy(() => import("../Pages/Success"));
+const Profile = lazy(() => import("../Pages/Profile/Profile"));
+const Settings = lazy(() => import("../Pages/Profile/Settings"));
+const Contacts = lazy(() => import("../Pages/Profile/Contacts"));
+const Partners = lazy(() => import("../Pages/Profile/Partners"));
+const About = lazy(() => import("../Pages/Profile/About"));
+const Support = lazy(() => import("../Pages/Profile/Support"));
+const Success = lazy(() => import("../Pages/Profile/Success"));
 
 const RenderPrivateRoutes: React.FC = () => {
   const [showNav, setShowNav] = useState<boolean>(true);

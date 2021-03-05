@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 
-import { BackArrow } from "../Icons";
-import { CssTextField } from "../MUI/CssComponents";
+import { BackArrow } from "../../Icons";
+import { CssTextField } from "../../MUI/CssComponents";
 import { useHistory } from "react-router-dom";
-import { BottomNavContext } from "../context/BottomNavContext";
+import { BottomNavContext } from "../../context/BottomNavContext";
 
 const Support: React.FC = () => {
   const history = useHistory();

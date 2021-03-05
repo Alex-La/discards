@@ -1,16 +1,16 @@
 // @ts-nocheck
 import React, { useContext, useEffect, useState } from "react";
-import { BottomNavContext } from "../context/BottomNavContext";
+import { BottomNavContext } from "../../context/BottomNavContext";
 
 import { useMutation } from "@apollo/react-hooks";
-import UPDATE_USER_MUTATION from "../graphql/mutations/updateUser";
-import ME_QUERY from "../graphql/queries/me";
+import UPDATE_USER_MUTATION from "../../graphql/mutations/updateUser";
+import ME_QUERY from "../../graphql/queries/me";
 
-import { BackArrow } from "../Icons";
-import { CssTextField } from "../MUI/CssComponents";
+import { BackArrow } from "../../Icons";
+import { CssTextField } from "../../MUI/CssComponents";
 import { useHistory } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-import { useMessage } from "../hooks/message.hook";
+import { UserContext } from "../../context/UserContext";
+import { useMessage } from "../../hooks/message.hook";
 
 type TForm = {
   name: string | undefined;

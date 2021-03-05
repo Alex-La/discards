@@ -77,7 +77,10 @@ const Settings: React.FC = () => {
     update();
   };
 
-  const logout = () => localStorage.removeItem("token");
+  const logout = () => {
+    localStorage.removeItem("token");
+    history.go(0);
+  };
 
   return (
     <div style={{ padding: 20, marginBottom: 70 }}>
@@ -184,14 +187,14 @@ const Settings: React.FC = () => {
         >
           Сохранить изменения
         </button>
-        <button
-          className="btn btn-shadow btn-outlined"
-          style={{ marginTop: 14 }}
-          onClick={logout}
-        >
-          Выйти из аккаунта
-        </button>
       </form>
+      <button
+        className="btn btn-shadow btn-outlined"
+        style={{ marginTop: 14 }}
+        onClick={logout}
+      >
+        Выйти из аккаунта
+      </button>
     </div>
   );
 };

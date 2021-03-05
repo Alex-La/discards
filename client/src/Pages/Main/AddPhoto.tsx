@@ -131,18 +131,45 @@ const AddPhoto: React.FC = () => {
         >
           <Light />
         </button>
-        <button className="btn-circle" style={{ width: 76, height: 76 }}>
+
+        <input
+          accept="image/*"
+          id="input-photo"
+          type="file"
+          capture
+          style={{ display: "none" }}
+        />
+        <button
+          className="btn-circle"
+          style={{ width: 76, height: 76, position: "relative" }}
+        >
+          <label
+            htmlFor="input-photo"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          />
           <Camera color="white" />
         </button>
+
+        <input
+          accept="image/*"
+          id="input-gallery"
+          type="file"
+          style={{ display: "none" }}
+        />
         <button
           className="btn-circle"
           style={{
             width: 76,
             height: 76,
+            position: "relative",
             boxShadow: "none",
             backgroundColor: "white",
           }}
         >
+          <label
+            htmlFor="input-gallery"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          />
           <Gallery />
         </button>
       </div>

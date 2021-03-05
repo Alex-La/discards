@@ -119,10 +119,10 @@ export const Bell = () => (
   </svg>
 );
 
-export const Notify = ({ count = false }) => (
+export const Notify = ({ count = 0 }) => (
   <div style={{ position: "relative" }}>
     <Bell />
-    {count && (
+    {count !== 0 && (
       <span style={{ position: "absolute", top: -7, right: -2 }}>
         <div style={{ position: "relative" }}>
           <svg

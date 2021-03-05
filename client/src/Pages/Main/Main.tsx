@@ -1,9 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 
-import { BottomNavContext } from "../context/BottomNavContext";
-import SearchInput from "../Components/SearchInput";
-import BottomModal from "../Components/Main/BottomModal";
-import { Add, Plus } from "../Icons";
+import { BottomNavContext } from "../../context/BottomNavContext";
+import SearchInput from "../../Components/SearchInput";
+import BottomModal from "../../Components/Main/BottomModal";
+import { Add, Plus } from "../../Icons";
 
 const Main: React.FC = () => {
   const [drawerState, setDrawerState] = useState<boolean>(false);

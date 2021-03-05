@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { SwipeableDrawer } from "@material-ui/core";
 import { Camera, Dots } from "../../Icons";
 const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -75,12 +76,14 @@ const BottomModal: React.FC<TModal> = ({ drawerState, toggleDrawer }) => {
           Держите карту внутри рамки и она будет отсканирована
         </p>
 
-        <button
-          className="btn btn-shadow"
-          style={{ marginBottom: 24, marginTop: 12 }}
-        >
-          Добавить
-        </button>
+        <NavLink to="/add-photo">
+          <button
+            className="btn btn-shadow"
+            style={{ marginBottom: 24, marginTop: 12 }}
+          >
+            Добавить
+          </button>
+        </NavLink>
       </div>
 
       <div
@@ -115,12 +118,14 @@ const BottomModal: React.FC<TModal> = ({ drawerState, toggleDrawer }) => {
           Заполнить данные карты вручную.
         </p>
 
-        <button
-          style={{ marginBottom: 24, marginTop: 24 }}
-          className="btn btn-shadow btn-outlined"
-        >
-          Добавить
-        </button>
+        <NavLink to="/add-hande">
+          <button
+            style={{ marginBottom: 24, marginTop: 24 }}
+            className="btn btn-shadow btn-outlined"
+          >
+            Добавить
+          </button>
+        </NavLink>
       </div>
     </SwipeableDrawer>
   );

@@ -6,7 +6,8 @@ import { BottomNavContext } from "../context/BottomNavContext";
 import BottomNav from "../Components/BottomNav";
 import Lazy from "../Components/Loaders/Lazy";
 import NotFound from "../Components/Errors/NotFound";
-const Main = lazy(() => import("../Pages/Main"));
+const Main = lazy(() => import("../Pages/Main/Main"));
+const AddPhoto = lazy(() => import("../Pages/Main/AddPhoto"));
 const Profile = lazy(() => import("../Pages/Profile/Profile"));
 const Settings = lazy(() => import("../Pages/Profile/Settings"));
 const Contacts = lazy(() => import("../Pages/Profile/Contacts"));
@@ -27,6 +28,7 @@ const RenderPrivateRoutes: React.FC = () => {
               <Main />
             </Suspense>
           </Route>
+          <Route path="/add-photo" component={AddPhoto} />
           <Route path="/profile" component={Profile} />
           <Route path="/settings" component={Settings} />
           <Route path="/contacts" component={Contacts} />
